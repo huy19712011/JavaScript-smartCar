@@ -39,6 +39,7 @@ class Car {
             this.height
         );
 
+        ctx.fillStyle = "red";
         ctx.fill();
 
         ctx.restore();

@@ -45,6 +45,10 @@ class Car {
     }
 
     update() {
+        this.#move();
+    }
+
+    #move() {
         if (this.controls.forward) {
             // this.y -=2;
             // step 3
@@ -78,7 +82,7 @@ class Car {
         }
 
 
-        if (this.speed != 0) {
+        if (this.speed !== 0) {
             const flip = this.speed > 0 ? 1 : -1;
 
             // step 4: left and right

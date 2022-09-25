@@ -6,6 +6,14 @@ class Car {
         this.height = height;
 
         this.controls = new Controls();
+
+        //step 3
+        this.speed = 0;
+        this.acceleration = 0.2;
+
+        // step 3a
+        this.maxSpeed = 3;
+        this.friction = 0.05;
     }
 
     draw(ctx) {
@@ -23,11 +31,37 @@ class Car {
 
     update() {
         if (this.controls.forward) {
-            this.y -=2;
+            // this.y -=2;
+            // step 3
+            this.speed += this.acceleration;
         }
 
         if (this.controls.reverse) {
-            this.y += 2;
+            // this.y += 2;
+            // step 3
+            this.speed -= this.acceleration;
         }
+
+        if (this.speed > this.maxSpeed) {
+            this.speed = this.maxSpeed;
+        }
+
+        if (this.speed < -this.maxSpeed/3) {
+            this.speed = -this.maxSpeed/3;
+        }
+
+        if (this.speed > 0) {
+            this.speed -= this.friction;
+        }
+
+        if (this.speed < 0) {
+            this.speed += this.friction;
+        }
+
+        if (Math.abs(this.speed) < this.friction) {
+            this.speed = 0;
+        }
+
+        this.y -= this.speed;
     }
 }

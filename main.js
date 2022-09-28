@@ -1,6 +1,6 @@
 const canvas = document.getElementById("myCanvas");
 // canvas.height = window.innerHeight; // step 1, move into animate function
-canvas.width = 200;
+canvas.width = 1000;
 
 const ctx = canvas.getContext("2d");
 
